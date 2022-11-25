@@ -1,0 +1,24 @@
+diff --git a/src/filter.c b/src/filter.c
+index 71f3635..d9066c6 100644
+--- a/src/filter.c
++++ b/src/filter.c
+@@ -163,6 +163,7 @@ bool filter_apply_chain (struct filter * chain)
+          */
+ 		close (pipes[1]);
+ clearerr(stdin);
++    fprintf(stderr, "fileno(stdin) = %d\n", fileno(stdin));
+ 		if (dup2 (pipes[0], fileno (stdin)) == -1)
+ 			flexfatal (_("dup2(pipes[0],0)"));
+ 		close (pipes[0]);
+diff --git a/src/misc.c b/src/misc.c
+index ef27833..85d7035 100644
+--- a/src/misc.c
++++ b/src/misc.c
+@@ -300,6 +300,7 @@ void flexerror (const char *msg)
+ 
+ void flexfatal (const char *msg)
+ {
++  perror("failed");
+ 	fprintf (stderr, _("%s: fatal internal error, %s\n"),
+ 		 program_name, msg);
+ 	FLEX_EXIT (1);
