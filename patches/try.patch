@@ -1,15 +1,25 @@
 diff --git a/src/filter.c b/src/filter.c
-index 71f3635..d9066c6 100644
+index 71f3635..7a9761e 100644
 --- a/src/filter.c
 +++ b/src/filter.c
-@@ -163,6 +163,7 @@ bool filter_apply_chain (struct filter * chain)
+@@ -163,7 +163,7 @@ bool filter_apply_chain (struct filter * chain)
           */
  		close (pipes[1]);
  clearerr(stdin);
-+    fprintf(stderr, "fileno(stdin) = %d\n", fileno(stdin));
- 		if (dup2 (pipes[0], fileno (stdin)) == -1)
+-		if (dup2 (pipes[0], fileno (stdin)) == -1)
++		if (dup2 (pipes[0], STDIN_FILENO) == -1)
  			flexfatal (_("dup2(pipes[0],0)"));
  		close (pipes[0]);
+         fseek (stdin, 0, SEEK_CUR);
+@@ -190,7 +190,7 @@ clearerr(stdin);
+ 
+ 	/* Parent */
+ 	close (pipes[0]);
+-	if (dup2 (pipes[1], fileno (stdout)) == -1)
++	if (dup2 (pipes[1], STDOUT_FILENO) == -1)
+ 		flexfatal (_("dup2(pipes[1],1)"));
+ 	close (pipes[1]);
+     fseek (stdout, 0, SEEK_CUR);
 diff --git a/src/misc.c b/src/misc.c
 index ef27833..85d7035 100644
 --- a/src/misc.c
