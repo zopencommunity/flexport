@@ -1,0 +1,318 @@
+diff --git a/tests/Makefile.in b/tests/Makefile.in
+index 63976e4..e981c9a 100644
+--- a/tests/Makefile.in
++++ b/tests/Makefile.in
+@@ -2985,7 +2985,7 @@ reject_nr.reject.c: reject.l4 $(FLEX)
+ 	$(AM_V_LEX)$(FLEX) --unsafe-no-m4-sect3-escape -o $@ $<
+ 
+ reject_nr.reject$(EXEEXT): reject_nr.reject.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) $^
++	$(AM_V_CCLD)$(LINK) $^ $(LIBS)
+ 
+ reject_r.reject.c: reject.l4 $(FLEX)
+ 	$(AM_V_LEX)$(FLEX) --unsafe-no-m4-sect3-escape --reentrant -o $@ $<
+@@ -2994,7 +2994,7 @@ reject_r.reject.$(OBJEXT): reject_r.reject.c
+ 	$(AM_V_CC)$(COMPILE) -DTEST_IS_REENTRANT -c -o $@ $<
+ 
+ reject_r.reject$(EXEEXT): reject_r.reject.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) $^
++	$(AM_V_CCLD)$(LINK) $^ $(LIBS)
+ 
+ reject_ver.table.c: reject.l4 $(FLEX)
+ 	$(AM_V_LEX)$(FLEX) --unsafe-no-m4-sect3-escape -o $@ --tables-verify --tables-file=$(basename $@).tables $<
+@@ -3003,7 +3003,7 @@ reject_ver.table.$(OBJEXT): reject_ver.table.c
+ 	$(AM_V_CC)$(COMPILE) -DTEST_HAS_TABLES_EXTERNAL -c -o $@ $<
+ 
+ reject_ver.table$(EXEEXT): reject_ver.table.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) $^
++	$(AM_V_CCLD)$(LINK) $^ $(LIBS)
+ 
+ reject_ser.table.c: reject.l4 $(FLEX)
+ 	$(AM_V_LEX)$(FLEX) -o $@ --unsafe-no-m4-sect3-escape --tables-file=$(basename $@).tables $<
+@@ -3012,7 +3012,7 @@ reject_ser.table.$(OBJEXT): reject_ser.table.c
+ 	$(AM_V_CC)$(COMPILE) -DTEST_HAS_TABLES_EXTERNAL -c -o $@ $<
+ 
+ reject_ser.table$(EXEEXT): reject_ser.table.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) $^
++	$(AM_V_CCLD)$(LINK) $^ $(LIBS)
+ 
+ top_main.$(OBJEXT): top.h
+ top.h: top.c
+@@ -3027,202 +3027,202 @@ tableopts.am: tableopts.sh
+ 	$(SHELL) $(srcdir)/tableopts.sh > $(srcdir)/tableopts.am
+ 
+ tableopts_opt_nr-Ca.opt$(EXEEXT): tableopts_opt_nr-Ca.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_nr-Ce.opt$(EXEEXT): tableopts_opt_nr-Ce.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_nr-Cf.opt$(EXEEXT): tableopts_opt_nr-Cf.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_nr-CF.opt$(EXEEXT): tableopts_opt_nr-CF.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_nr-Cm.opt$(EXEEXT): tableopts_opt_nr-Cm.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_nr-Cem.opt$(EXEEXT): tableopts_opt_nr-Cem.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_nr-Cae.opt$(EXEEXT): tableopts_opt_nr-Cae.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_nr-Caef.opt$(EXEEXT): tableopts_opt_nr-Caef.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_nr-CaeF.opt$(EXEEXT): tableopts_opt_nr-CaeF.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_nr-Cam.opt$(EXEEXT): tableopts_opt_nr-Cam.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_nr-Caem.opt$(EXEEXT): tableopts_opt_nr-Caem.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_r-Ca.opt$(EXEEXT): tableopts_opt_r-Ca.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_r-Ce.opt$(EXEEXT): tableopts_opt_r-Ce.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_r-Cf.opt$(EXEEXT): tableopts_opt_r-Cf.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_r-CF.opt$(EXEEXT): tableopts_opt_r-CF.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_r-Cm.opt$(EXEEXT): tableopts_opt_r-Cm.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_r-Cem.opt$(EXEEXT): tableopts_opt_r-Cem.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_r-Cae.opt$(EXEEXT): tableopts_opt_r-Cae.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_r-Caef.opt$(EXEEXT): tableopts_opt_r-Caef.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_r-CaeF.opt$(EXEEXT): tableopts_opt_r-CaeF.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_r-Cam.opt$(EXEEXT): tableopts_opt_r-Cam.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_r-Caem.opt$(EXEEXT): tableopts_opt_r-Caem.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_nr-Ca.ser$(EXEEXT): tableopts_ser_nr-Ca.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_nr-Ce.ser$(EXEEXT): tableopts_ser_nr-Ce.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_nr-Cf.ser$(EXEEXT): tableopts_ser_nr-Cf.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_nr-CF.ser$(EXEEXT): tableopts_ser_nr-CF.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_nr-Cm.ser$(EXEEXT): tableopts_ser_nr-Cm.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_nr-Cem.ser$(EXEEXT): tableopts_ser_nr-Cem.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_nr-Cae.ser$(EXEEXT): tableopts_ser_nr-Cae.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_nr-Caef.ser$(EXEEXT): tableopts_ser_nr-Caef.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_nr-CaeF.ser$(EXEEXT): tableopts_ser_nr-CaeF.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_nr-Cam.ser$(EXEEXT): tableopts_ser_nr-Cam.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_nr-Caem.ser$(EXEEXT): tableopts_ser_nr-Caem.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_r-Ca.ser$(EXEEXT): tableopts_ser_r-Ca.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_r-Ce.ser$(EXEEXT): tableopts_ser_r-Ce.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_r-Cf.ser$(EXEEXT): tableopts_ser_r-Cf.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_r-CF.ser$(EXEEXT): tableopts_ser_r-CF.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_r-Cm.ser$(EXEEXT): tableopts_ser_r-Cm.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_r-Cem.ser$(EXEEXT): tableopts_ser_r-Cem.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_r-Cae.ser$(EXEEXT): tableopts_ser_r-Cae.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_r-Caef.ser$(EXEEXT): tableopts_ser_r-Caef.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_r-CaeF.ser$(EXEEXT): tableopts_ser_r-CaeF.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_r-Cam.ser$(EXEEXT): tableopts_ser_r-Cam.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ser_r-Caem.ser$(EXEEXT): tableopts_ser_r-Caem.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_nr-Ca.ver$(EXEEXT): tableopts_ver_nr-Ca.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_nr-Ce.ver$(EXEEXT): tableopts_ver_nr-Ce.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_nr-Cf.ver$(EXEEXT): tableopts_ver_nr-Cf.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_nr-CF.ver$(EXEEXT): tableopts_ver_nr-CF.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_nr-Cm.ver$(EXEEXT): tableopts_ver_nr-Cm.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_nr-Cem.ver$(EXEEXT): tableopts_ver_nr-Cem.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_nr-Cae.ver$(EXEEXT): tableopts_ver_nr-Cae.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_nr-Caef.ver$(EXEEXT): tableopts_ver_nr-Caef.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_nr-CaeF.ver$(EXEEXT): tableopts_ver_nr-CaeF.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_nr-Cam.ver$(EXEEXT): tableopts_ver_nr-Cam.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_nr-Caem.ver$(EXEEXT): tableopts_ver_nr-Caem.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_r-Ca.ver$(EXEEXT): tableopts_ver_r-Ca.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_r-Ce.ver$(EXEEXT): tableopts_ver_r-Ce.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_r-Cf.ver$(EXEEXT): tableopts_ver_r-Cf.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_r-CF.ver$(EXEEXT): tableopts_ver_r-CF.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_r-Cm.ver$(EXEEXT): tableopts_ver_r-Cm.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_r-Cem.ver$(EXEEXT): tableopts_ver_r-Cem.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_r-Cae.ver$(EXEEXT): tableopts_ver_r-Cae.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_r-Caef.ver$(EXEEXT): tableopts_ver_r-Caef.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_r-CaeF.ver$(EXEEXT): tableopts_ver_r-CaeF.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_r-Cam.ver$(EXEEXT): tableopts_ver_r-Cam.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_ver_r-Caem.ver$(EXEEXT): tableopts_ver_r-Caem.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $<
++	$(AM_V_CCLD)$(LINK) -o $@ $< $(LIBS)
+ 
+ tableopts_opt_nr%.c: tableopts.l4 $(FLEX)
+ 	$(AM_V_LEX)$(FLEX) --unsafe-no-m4-sect3-escape -P $(subst -,_,$(basename $(*F))) $* -o $@ $<
+@@ -3255,7 +3255,7 @@ tableopts_ver_nr%.$(OBJEXT): tableopts_ver_nr%.c
+ 	$(AM_V_CC)$(COMPILE) -DTEST_HAS_TABLES_EXTERNAL -c -o $@ $<
+ 
+ tableopts_ver_nr%.ver$(EXEEXT): tableopts_ver_nr%.$(OBJEXT)
+-	$(AM_V_CCLD)$(LINK) -o $@ $^
++	$(AM_V_CCLD)$(LINK) -o $@ $^ $(LIBS)
+ 
+ tableopts_ver_r%.c: tableopts.l4 $(FLEX)
+ 	$(AM_V_LEX)$(FLEX) --unsafe-no-m4-sect3-escape -P $(subst -,_,$(basename $(*F))) -R --tables-file="tableopts_ver_r$*.ver.tables" --tables-verify $*  -o $@ $<

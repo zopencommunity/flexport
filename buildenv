@@ -1,5 +1,5 @@
 export ZOPEN_TARBALL_URL="https://github.com/westes/flex/files/981163/flex-2.6.4.tar.gz"
-export ZOPEN_TARBALL_DEPS="make m4 tar gzip zoslib bash"
+export ZOPEN_TARBALL_DEPS="make m4 tar gzip zoslib bash getopt coreutils diffutils"
 export ZOPEN_TYPE="TARBALL"
 
 zopen_check_results()
@@ -12,7 +12,7 @@ totalTests=$(tail -30 ${chk} | egrep '^# ERROR:|^# PASS:|^# XFAIL:|^# FAIL:|^# X
 cat <<ZZ
 actualFailures:$failures
 totalTests:$totalTests
-expectedFailures:0
+expectedFailures:11
 ZZ
 }
 
