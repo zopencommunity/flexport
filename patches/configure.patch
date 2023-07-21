@@ -1,8 +1,19 @@
 diff --git a/configure b/configure
-index d88c47c..407046f 100755
+index d88c47c..8ff85f6 100755
 --- a/configure
 +++ b/configure
-@@ -20658,7 +20658,7 @@ else
+@@ -4578,6 +4578,10 @@ aix[4-9]*)
+   lt_cv_deplibs_check_method=pass_all
+   ;;
+ 
++openedition)
++  lt_cv_deplibs_check_method=pass_all
++  ;;
++
+ beos*)
+   lt_cv_deplibs_check_method=pass_all
+   ;;
+@@ -20658,7 +20662,7 @@ else
  esac
  
  
@@ -11,7 +22,7 @@ index d88c47c..407046f 100755
  
  fi
  
-@@ -20729,7 +20729,7 @@ else
+@@ -20729,7 +20733,7 @@ else
  esac
  
  
