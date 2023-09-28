@@ -1,13 +1,14 @@
-export ZOPEN_TARBALL_URL="https://github.com/westes/flex/files/981163/flex-2.6.4.tar.gz"
-export ZOPEN_TARBALL_DEPS="make m4 tar gzip zoslib bash getopt coreutils diffutils"
-export ZOPEN_TYPE="TARBALL"
+export ZOPEN_STABLE_URL="https://github.com/westes/flex/files/981163/flex-2.6.4.tar.gz"
+export ZOPEN_STABLE_DEPS="make m4 tar gzip zoslib bash getopt coreutils diffutils"
+export ZOPEN_BUILD_LINE="STABLE"
+export ZOPEN_COMP=CLANG
 
 zopen_check_results()
 {
 chk="$1/$2_check.log"
 
-failures=$(tail -30 ${chk} | egrep '^# FAIL:|^# ERROR:|^# XFAIL' | awk '{sum+=$3;} END{print sum;}')
-totalTests=$(tail -30 ${chk} | egrep '^# ERROR:|^# PASS:|^# XFAIL:|^# FAIL:|^# XPASS:' | awk '{sum+=$3;} END{print sum;}')
+failures=$(tail -30 ${chk} | grep -E '^# FAIL:|^# ERROR:|^# XFAIL' | awk '{sum+=$3;} END{print sum;}')
+totalTests=$(tail -30 ${chk} | grep -E '^# ERROR:|^# PASS:|^# XFAIL:|^# FAIL:|^# XPASS:' | awk '{sum+=$3;} END{print sum;}')
 
 cat <<ZZ
 actualFailures:$failures
@@ -26,4 +27,9 @@ if [ ! -z "\$ZOPEN_IN_ZOPEN_BUILD" ]; then
   export ZOPEN_EXTRA_LIBS="\${ZOPEN_EXTRA_LIBS} -lfl"
 fi
 ZZ
+}
+
+zopen_get_version()
+{
+ ./src/flex --version | cut -f2 -d' '
 }
