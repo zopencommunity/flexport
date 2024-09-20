@@ -7,9 +7,9 @@ node('linux')
                         branches: [[name: '*/main']],
                         doGenerateSubmoduleConfigurations: false,
                         extensions: [],
-                        userRemoteConfigs: [[url: "https://github.com/ZOSOpenTools/flexport.git"]]])
+                        userRemoteConfigs: [[url: "https://github.com/zopencommunity/flexport.git"]]])
         }
   stage('Build') {
-    build job: 'Port-Pipeline', parameters: [string(name: 'PORT_GITHUB_REPO', value: 'https://github.com/ZOSOpenTools/flexport.git'), string(name: 'PORT_DESCRIPTION', value: 'a fast lexical analyzer' )]
+    build job: 'Port-Pipeline', parameters: [string(name: 'PORT_GITHUB_REPO', value: 'https://github.com/zopencommunity/flexport.git'), string(name: 'PORT_DESCRIPTION', value: 'a fast lexical analyzer' )]
   }
 }
