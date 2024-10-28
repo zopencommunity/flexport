@@ -2,6 +2,7 @@
 FLEX_VERSION="2.6.4"
 
 export ZOPEN_STABLE_URL="https://github.com/westes/flex/releases/download/v${FLEX_VERSION}/flex-${FLEX_VERSION}.tar.gz"
+export ZOPEN_CATEGORIES="development"
 export ZOPEN_STABLE_DEPS="make m4 tar gzip zoslib bash getopt coreutils diffutils"
 export ZOPEN_BUILD_LINE="STABLE"
 export ZOPEN_COMP=CLANG
