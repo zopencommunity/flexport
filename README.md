@@ -2,7 +2,7 @@
 
 # Flex
 
-A text-based file editor
+This is flex, the fast lexical analyzer generator.
 
 # Installation and Usage
 
