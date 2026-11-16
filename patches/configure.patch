@@ -1,33 +1,33 @@
 diff --git a/configure b/configure
-index d88c47c..8ff85f6 100755
+index 70f48de..5a57234 100755
 --- a/configure
 +++ b/configure
-@@ -4578,6 +4578,10 @@ aix[4-9]*)
-   lt_cv_deplibs_check_method=pass_all
+@@ -5765,6 +5765,10 @@ openbsd* | bitrig*)
+   fi
    ;;
  
 +openedition)
 +  lt_cv_deplibs_check_method=pass_all
 +  ;;
 +
- beos*)
+ osf3* | osf4* | osf5*)
    lt_cv_deplibs_check_method=pass_all
    ;;
-@@ -20658,7 +20662,7 @@ else
+@@ -23311,7 +23315,7 @@ else $as_nop
  esac
  
  
--$as_echo "#define malloc rpl_malloc" >>confdefs.h
-+#$as_echo "#define malloc rpl_malloc" >>confdefs.h
+-printf "%s\n" "#define malloc rpl_malloc" >>confdefs.h
++#printf "%s\n" "#define malloc rpl_malloc" >>confdefs.h
  
  fi
  
-@@ -20729,7 +20733,7 @@ else
+@@ -23381,7 +23385,7 @@ else $as_nop
  esac
  
  
--$as_echo "#define realloc rpl_realloc" >>confdefs.h
-+#$as_echo "#define realloc rpl_realloc" >>confdefs.h
+-printf "%s\n" "#define realloc rpl_realloc" >>confdefs.h
++#printf "%s\n" "#define realloc rpl_realloc" >>confdefs.h
  
  fi
  
